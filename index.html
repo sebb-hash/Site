@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sébastien Boussely — Coaching & Formation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────── */
+    :root {
+      --amber:      #BA7517;
+      --amber-dark: #854F0B;
+      --amber-pale: #FBF0DC;
+      --amber-mid:  #EF9F27;
+      --text:       #1A1410;
+      --text-2:     #5C4E3A;
+      --text-3:     #8C7A63;
+      --bg:         #FDFAF5;
+      --white:      #FFFFFF;
+      --border:     #E8DDD0;
+      --r:          10px;
+      --r-lg:       16px;
+      --font-serif: 'Lora', Georgia, serif;
+      --font-sans:  'Inter', system-ui, sans-serif;
+    }
+
+    /* ─── RESET ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── LAYOUT ─────────────────────────────────────────── */
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── NAV ────────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(253, 250, 245, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 860px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px; gap: 24px;
+    }
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-size: 17px; font-weight: 500;
+      color: var(--text); white-space: nowrap;
+    }
+    .nav-logo span { color: var(--amber); }
+    .nav-links {
+      display: flex; gap: 24px; list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px; color: var(--text-2);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--amber); }
+    .btn {
+      display: inline-block;
+      font-family: var(--font-sans); font-size: 14px; font-weight: 500;
+      padding: 9px 20px; border-radius: var(--r);
+      border: none; cursor: pointer; transition: all .2s;
+    }
+    .btn-primary { background: var(--amber); color: var(--white); }
+    .btn-primary:hover { background: var(--amber-dark); }
+    .btn-ghost {
+      background: transparent;
+      border: 1.5px solid var(--amber);
+      color: var(--amber);
+    }
+    .btn-ghost:hover { background: var(--amber-pale); }
+    .btn-white { background: var(--white); color: var(--amber); font-weight: 500; }
+    .btn-white:hover { background: var(--amber-pale); }
+    .btn-lg { padding: 13px 28px; font-size: 15px; }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    .hero {
+      padding: 80px 24px 64px;
+      text-align: center;
+    }
+    .hero .container { max-width: 680px; }
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--amber-dark);
+      background: var(--amber-pale);
+      padding: 5px 14px; border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 400; line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      color: var(--amber); font-style: italic;
+    }
+    .hero-sub {
+      font-size: 17px; color: var(--text-2); line-height: 1.75;
+      max-width: 560px; margin: 0 auto 32px;
+    }
+    .hero-ctas {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .hero-stats {
+      display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-n {
+      font-family: var(--font-serif);
+      font-size: 28px; font-weight: 500; color: var(--amber);
+      line-height: 1;
+    }
+    .stat-l {
+      font-size: 12px; color: var(--text-3); margin-top: 4px;
+    }
+
+    /* ─── SECTION WRAPPER ────────────────────────────────── */
+    section { padding: 72px 24px; }
+    .section-label {
+      font-size: 12px; font-weight: 500; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--amber-dark);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(22px, 3.5vw, 30px);
+      font-weight: 400; line-height: 1.3;
+      color: var(--text); margin-bottom: 36px;
+    }
+
+    /* ─── PAINS ──────────────────────────────────────────── */
+    .pains { background: var(--amber-pale); }
+    .pains-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .pain-card {
+      background: var(--white); border-radius: var(--r-lg);
+      border: 1px solid var(--border);
+      padding: 24px 20px;
+    }
+    .pain-mark {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--amber-pale); border: 1.5px solid var(--amber-mid);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+    }
+    .pain-mark svg { width: 14px; height: 14px; stroke: var(--amber); fill: none; stroke-width: 2; stroke-linecap: round; }
+    .pain-q {
+      font-size: 14px; font-weight: 500; color: var(--text);
+      line-height: 1.45; margin-bottom: 8px;
+    }
+    .pain-desc { font-size: 13px; color: var(--text-3); line-height: 1.6; }
+
+    /* ─── OUTCOMES ───────────────────────────────────────── */
+    .outcomes-list { display: flex; flex-direction: column; gap: 16px; }
+    .outcome {
+      display: flex; gap: 20px; align-items: flex-start;
+      background: var(--white);
+      border: 1px solid var(--border); border-radius: var(--r-lg);
+      padding: 24px;
+    }
+    .outcome-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: var(--amber-pale); border-radius: var(--r);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .outcome-icon svg { width: 20px; height: 20px; stroke: var(--amber); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .outcome-title {
+      font-size: 15px; font-weight: 500; color: var(--text);
+      margin-bottom: 6px;
+    }
+    .outcome-text { font-size: 14px; color: var(--text-2); line-height: 1.6; }
+
+    /* ─── HOW ────────────────────────────────────────────── */
+    .how { background: var(--amber-pale); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0; position: relative;
+    }
+    .step { padding: 24px 16px 24px; text-align: center; }
+    .step-num {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--amber); color: var(--white);
+      font-size: 15px; font-weight: 500;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
+    }
+    .step-title {
+      font-size: 14px; font-weight: 500; color: var(--text);
+      margin-bottom: 6px;
+    }
+    .step-desc { font-size: 13px; color: var(--text-2); line-height: 1.55; }
+    .step-sep {
+      display: flex; align-items: center; justify-content: center;
+      color: var(--amber-mid); font-size: 22px; padding-top: 20px;
+    }
+
+    /* ─── FOR WHOM ───────────────────────────────────────── */
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .who-card {
+      border: 1px solid var(--border); border-radius: var(--r-lg);
+      padding: 28px 24px; background: var(--white);
+    }
+    .who-tag {
+      display: inline-block;
+      font-size: 12px; font-weight: 500;
+      background: var(--amber-pale); color: var(--amber-dark);
+      padding: 4px 12px; border-radius: 20px; margin-bottom: 14px;
+    }
+    .who-card h3 {
+      font-family: var(--font-serif);
+      font-size: 18px; font-weight: 400;
+      color: var(--text); margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .who-card p { font-size: 14px; color: var(--text-2); margin-bottom: 16px; }
+    .who-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .who-list li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; color: var(--text-2);
+    }
+    .who-list li::before {
+      content: '';
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--amber-mid); flex-shrink: 0;
+    }
+
+    /* ─── TRUST STRIP ────────────────────────────────────── */
+    .trust { padding: 48px 24px; }
+    .trust-inner {
+      max-width: 860px; margin: 0 auto;
+      background: var(--amber-pale);
+      border-radius: var(--r-lg);
+      padding: 32px 36px;
+      display: flex; gap: 28px; align-items: flex-start;
+    }
+    .trust-avatar {
+      width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
+      background: var(--amber-mid);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 20px; font-weight: 500; color: #412402;
+    }
+    .trust-body {}
+    .trust-label {
+      font-size: 12px; font-weight: 500; letter-spacing: .07em;
+      text-transform: uppercase; color: var(--amber-dark);
+      margin-bottom: 8px;
+    }
+    .trust-text {
+      font-size: 15px; color: var(--text-2); line-height: 1.75;
+      font-style: italic; font-family: var(--font-serif);
+    }
+    .trust-sig {
+      margin-top: 12px; font-size: 13px; color: var(--text-3);
+      font-family: var(--font-sans); font-style: normal;
+    }
+
+    /* ─── CTA BAND ───────────────────────────────────────── */
+    .cta-band { padding: 0 24px 72px; }
+    .cta-inner {
+      max-width: 860px; margin: 0 auto;
+      background: var(--amber);
+      border-radius: var(--r-lg);
+      padding: 56px 40px; text-align: center;
+    }
+    .cta-inner h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(24px, 4vw, 34px);
+      font-weight: 400; color: var(--white);
+      margin-bottom: 12px; line-height: 1.25;
+    }
+    .cta-inner p {
+      font-size: 16px; color: rgba(255,255,255,0.85);
+      margin-bottom: 28px; line-height: 1.65;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 8px;
+      max-width: 860px; margin: 0 auto;
+    }
+    footer p { font-size: 13px; color: var(--text-3); }
+    footer a { color: var(--amber); }
+
+    /* ─── DIVIDER ────────────────────────────────────────── */
+    hr { border: none; border-top: 1px solid var(--border); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      section { padding: 52px 20px; }
+      .trust-inner { flex-direction: column; padding: 24px; }
+      .cta-inner { padding: 40px 24px; }
+      .step-sep { display: none; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════ NAV ═══════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Sébastien <span>Boussely</span></div>
+    <ul class="nav-links">
+      <li><a href="#pour-qui">Pour qui ?</a></li>
+      <li><a href="#resultats">Ce que vous gagnez</a></li>
+      <li><a href="#comment">Comment ça se passe</a></li>
+    </ul>
+    <a href="#cta" class="btn btn-primary">Parlons-en</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════ HERO ══════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Coaching · Formation · Accompagnement managérial</div>
+    <h1>Vous avez le potentiel.<br><em>Débloquez-le.</em></h1>
+    <p class="hero-sub">
+      Vous managez une équipe, traversez une transition professionnelle ou évoluez dans un contexte international — et vous sentez qu'il vous manque quelque chose pour passer au niveau supérieur. C'est exactement là qu'on travaille ensemble.
+    </p>
+    <div class="hero-ctas">
+      <a href="#cta" class="btn btn-primary btn-lg">Réserver un appel gratuit de 30 min</a>
+      <a href="#resultats" class="btn btn-ghost btn-lg">Voir les accompagnements</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-n">25+</div><div class="stat-l">ans sur le terrain</div></div>
+      <div class="stat"><div class="stat-n">15+</div><div class="stat-l">pays d'expérience</div></div>
+      <div class="stat"><div class="stat-n">100%</div><div class="stat-l">ancré dans la réalité</div></div>
+    </div>
+  </div>
+</section>
+
+<hr />
+
+<!-- ═══════════════════════ PAINS ═════════════════════ -->
+<section class="pains">
+  <div class="container">
+    <div class="section-label">Ça vous parle ?</div>
+    <h2 class="section-title">Ces situations que vous connaissez bien…</h2>
+    <div class="pains-grid">
+
+      <div class="pain-card">
+        <div class="pain-mark">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <p class="pain-q">Vous managez, mais vous n'êtes pas sûr d'avoir le bon style de leadership.</p>
+        <p class="pain-desc">Résultats en dents de scie, tensions dans l'équipe, sentiment de faire seul ce qui devrait être partagé.</p>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-mark">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <p class="pain-q">Vous prenez un nouveau poste et vous voulez réussir votre prise de fonction.</p>
+        <p class="pain-desc">Les premières semaines sont décisives. Vous voulez poser les bonnes bases dès le départ.</p>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-mark">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <p class="pain-q">Vous travaillez dans un contexte multiculturel et les malentendus coûtent cher.</p>
+        <p class="pain-desc">Équipes mixtes, partenaires étrangers, management à distance… la communication ne coule pas de source.</p>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-mark">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <p class="pain-q">Vous êtes à un carrefour professionnel et vous cherchez de la clarté.</p>
+        <p class="pain-desc">Reconversion, évolution, projet entrepreneurial — vous avez besoin d'un espace pour y voir clair.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ OUTCOMES ══════════════════ -->
+<section id="resultats">
+  <div class="container">
+    <div class="section-label">Ce que vous allez gagner</div>
+    <h2 class="section-title">Des résultats concrets, pas des concepts</h2>
+    <div class="outcomes-list">
+
+      <div class="outcome">
+        <div class="outcome-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+        </div>
+        <div>
+          <p class="outcome-title">Une posture managériale solide et assumée</p>
+          <p class="outcome-text">Vous saurez où vous en êtes, ce que vous voulez transmettre et comment adapter votre style à chaque situation. Vos équipes le ressentiront.</p>
+        </div>
+      </div>
+
+      <div class="outcome">
+        <div class="outcome-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <p class="outcome-title">Une communication qui crée de la confiance</p>
+          <p class="outcome-text">En entretien, en réunion, à l'international — vous parlez avec impact, vous écoutez autrement, et les relations changent.</p>
+        </div>
+      </div>
+
+      <div class="outcome">
+        <div class="outcome-icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+        </div>
+        <div>
+          <p class="outcome-title">Un cap clair pour la suite de votre parcours</p>
+          <p class="outcome-text">Qu'il s'agisse d'une transition, d'une montée en responsabilité ou d'un projet, vous repartez avec un plan d'action réaliste que vous avez co-construit.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ HOW ═══════════════════════ -->
+<section class="how" id="comment">
+  <div class="container">
+    <div class="section-label">Comment ça se passe</div>
+    <h2 class="section-title">Simple, structuré, humain</h2>
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <p class="step-title">Un appel découverte</p>
+        <p class="step-desc">30 min gratuites pour comprendre où vous en êtes et ce dont vous avez besoin.</p>
+      </div>
+      <div class="step-sep" aria-hidden="true">→</div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <p class="step-title">Une proposition sur mesure</p>
+        <p class="step-desc">Coaching, formation ou accompagnement — adapté à votre situation, pas un programme standard.</p>
+      </div>
+      <div class="step-sep" aria-hidden="true">→</div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <p class="step-title">On travaille ensemble</p>
+        <p class="step-desc">En présentiel ou à distance, à votre rythme, avec des jalons clairs pour mesurer les avancées.</p>
+      </div>
+      <div class="step-sep" aria-hidden="true">→</div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <p class="step-title">Vous avancez</p>
+        <p class="step-desc">Des résultats mesurables et durables, ancrés dans votre réalité professionnelle.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FOR WHOM ══════════════════ -->
+<section id="pour-qui">
+  <div class="container">
+    <div class="section-label">Pour qui ?</div>
+    <h2 class="section-title">Deux portes d'entrée, une même exigence</h2>
+    <div class="who-grid">
+
+      <div class="who-card">
+        <div class="who-tag">Managers &amp; cadres</div>
+        <h3>Vous voulez progresser à titre personnel</h3>
+        <p>Leadership, transitions, interculturalité — pour les professionnels qui veulent aller plus loin.</p>
+        <ul class="who-list">
+          <li>Prise de poste / nouveau rôle</li>
+          <li>Développement du leadership</li>
+          <li>Mobilité internationale</li>
+          <li>Reconversion ou évolution</li>
+        </ul>
+      </div>
+
+      <div class="who-card">
+        <div class="who-tag">Entreprises &amp; DRH</div>
+        <h3>Vous investissez dans vos équipes</h3>
+        <p>Formations intra, coaching de managers, accompagnement au changement — sur devis.</p>
+        <ul class="who-list">
+          <li>Formations sur mesure en entreprise</li>
+          <li>Coaching de managers en poste</li>
+          <li>Accompagnement interculturel d'équipes</li>
+          <li>Conseil en posture managériale</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ TRUST ═════════════════════ -->
+<section class="trust">
+  <div class="trust-inner">
+    <div class="trust-avatar">SB</div>
+    <div class="trust-body">
+      <div class="trust-label">Pourquoi me faire confiance</div>
+      <p class="trust-text">
+        Pas parce que j'ai un beau diplôme — mais parce que j'ai vécu ce que vous vivez. 25 ans à manager des équipes internationales, à naviguer l'incertitude, à transformer des obstacles en leviers. Mon rôle aujourd'hui : vous aider à faire pareil, avec plus de clarté et moins de tâtonnement.
+      </p>
+      <p class="trust-sig">Sébastien Boussely · Ingénieur Centrale/Supélec · Formateur Professionnel d'Adultes (RNCP)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CTA BAND ══════════════════ -->
+<div class="cta-band" id="cta">
+  <div class="cta-inner">
+    <h2>Prêt à faire le premier pas ?</h2>
+    <p>Un appel de 30 minutes, sans engagement.<br>On regarde ensemble si une collaboration a du sens.</p>
+    <a href="mailto:contact@sebastienboussely.fr" class="btn btn-white btn-lg">Réserver mon appel découverte gratuit →</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════ FOOTER ════════════════════ -->
+<footer>
+  <p>© 2025 Sébastien Boussely · Coaching &amp; Formation</p>
+  <p style="color: var(--amber);">Saint-Yrieix-la-Perche · France &amp; distanciel</p>
+</footer>
+
+</body>
+</html>

@@ -9,20 +9,20 @@
   <style>
     /* ─── TOKENS ─────────────────────────────────────────── */
     :root {
-      --amber:      #BA7517;
-      --amber-dark: #854F0B;
-      --amber-pale: #FBF0DC;
-      --amber-mid:  #EF9F27;
-      --text:       #1A1410;
-      --text-2:     #5C4E3A;
-      --text-3:     #8C7A63;
-      --bg:         #FDFAF5;
-      --white:      #FFFFFF;
-      --border:     #E8DDD0;
-      --r:          10px;
-      --r-lg:       16px;
-      --font-serif: 'Lora', Georgia, serif;
-      --font-sans:  'Inter', system-ui, sans-serif;
+      --primary:      #1B7A8F;
+      --primary-dark: #0D4A56;
+      --primary-pale: #E8F4F7;
+      --primary-mid:  #3BA5BF;
+      --text:         #1A1410;
+      --text-2:       #5C4E3A;
+      --text-3:       #8C7A63;
+      --bg:           #FDFAF5;
+      --white:        #FFFFFF;
+      --border:       #E8DDD0;
+      --r:            10px;
+      --r-lg:         16px;
+      --font-serif:   'Lora', Georgia, serif;
+      --font-sans:    'Inter', system-ui, sans-serif;
     }
 
     /* ─── RESET ──────────────────────────────────────────── */
@@ -56,11 +56,18 @@
       height: 60px; gap: 24px;
     }
     .nav-logo {
-      font-family: var(--font-serif);
-      font-size: 17px; font-weight: 500;
-      color: var(--text); white-space: nowrap;
+      display: flex; align-items: center; gap: 12px;
+      white-space: nowrap;
     }
-    .nav-logo span { color: var(--amber); }
+    .nav-logo img {
+      height: 40px; width: auto;
+    }
+    .nav-logo-text {
+      font-family: var(--font-serif);
+      font-size: 15px; font-weight: 500;
+      color: var(--text);
+    }
+    .nav-logo-text span { color: var(--primary); }
     .nav-links {
       display: flex; gap: 24px; list-style: none;
     }
@@ -68,23 +75,23 @@
       font-size: 14px; color: var(--text-2);
       transition: color .2s;
     }
-    .nav-links a:hover { color: var(--amber); }
+    .nav-links a:hover { color: var(--primary); }
     .btn {
       display: inline-block;
       font-family: var(--font-sans); font-size: 14px; font-weight: 500;
       padding: 9px 20px; border-radius: var(--r);
       border: none; cursor: pointer; transition: all .2s;
     }
-    .btn-primary { background: var(--amber); color: var(--white); }
-    .btn-primary:hover { background: var(--amber-dark); }
+    .btn-primary { background: var(--primary); color: var(--white); }
+    .btn-primary:hover { background: var(--primary-dark); }
     .btn-ghost {
       background: transparent;
-      border: 1.5px solid var(--amber);
-      color: var(--amber);
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
     }
-    .btn-ghost:hover { background: var(--amber-pale); }
-    .btn-white { background: var(--white); color: var(--amber); font-weight: 500; }
-    .btn-white:hover { background: var(--amber-pale); }
+    .btn-ghost:hover { background: var(--primary-pale); }
+    .btn-white { background: var(--white); color: var(--primary); font-weight: 500; }
+    .btn-white:hover { background: var(--primary-pale); }
     .btn-lg { padding: 13px 28px; font-size: 15px; }
 
     /* ─── HERO ───────────────────────────────────────────── */
@@ -96,8 +103,8 @@
     .eyebrow {
       display: inline-block;
       font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
-      color: var(--amber-dark);
-      background: var(--amber-pale);
+      color: var(--primary-dark);
+      background: var(--primary-pale);
       padding: 5px 14px; border-radius: 20px;
       margin-bottom: 24px;
     }
@@ -109,7 +116,7 @@
       margin-bottom: 20px;
     }
     .hero h1 em {
-      color: var(--amber); font-style: italic;
+      color: var(--primary); font-style: italic;
     }
     .hero-sub {
       font-size: 17px; color: var(--text-2); line-height: 1.75;
@@ -125,7 +132,7 @@
     .stat { text-align: center; }
     .stat-n {
       font-family: var(--font-serif);
-      font-size: 28px; font-weight: 500; color: var(--amber);
+      font-size: 28px; font-weight: 500; color: var(--primary);
       line-height: 1;
     }
     .stat-l {
@@ -136,7 +143,7 @@
     section { padding: 72px 24px; }
     .section-label {
       font-size: 12px; font-weight: 500; letter-spacing: .08em;
-      text-transform: uppercase; color: var(--amber-dark);
+      text-transform: uppercase; color: var(--primary-dark);
       margin-bottom: 8px;
     }
     .section-title {
@@ -147,7 +154,7 @@
     }
 
     /* ─── PAINS ──────────────────────────────────────────── */
-    .pains { background: var(--amber-pale); }
+    .pains { background: var(--primary-pale); }
     .pains-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -160,11 +167,11 @@
     }
     .pain-mark {
       width: 28px; height: 28px; border-radius: 50%;
-      background: var(--amber-pale); border: 1.5px solid var(--amber-mid);
+      background: var(--primary-pale); border: 1.5px solid var(--primary-mid);
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 14px;
     }
-    .pain-mark svg { width: 14px; height: 14px; stroke: var(--amber); fill: none; stroke-width: 2; stroke-linecap: round; }
+    .pain-mark svg { width: 14px; height: 14px; stroke: var(--primary); fill: none; stroke-width: 2; stroke-linecap: round; }
     .pain-q {
       font-size: 14px; font-weight: 500; color: var(--text);
       line-height: 1.45; margin-bottom: 8px;
@@ -181,10 +188,10 @@
     }
     .outcome-icon {
       width: 44px; height: 44px; flex-shrink: 0;
-      background: var(--amber-pale); border-radius: var(--r);
+      background: var(--primary-pale); border-radius: var(--r);
       display: flex; align-items: center; justify-content: center;
     }
-    .outcome-icon svg { width: 20px; height: 20px; stroke: var(--amber); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .outcome-icon svg { width: 20px; height: 20px; stroke: var(--primary); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     .outcome-title {
       font-size: 15px; font-weight: 500; color: var(--text);
       margin-bottom: 6px;
@@ -192,7 +199,7 @@
     .outcome-text { font-size: 14px; color: var(--text-2); line-height: 1.6; }
 
     /* ─── HOW ────────────────────────────────────────────── */
-    .how { background: var(--amber-pale); }
+    .how { background: var(--primary-pale); }
     .steps {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -201,7 +208,7 @@
     .step { padding: 24px 16px 24px; text-align: center; }
     .step-num {
       width: 40px; height: 40px; border-radius: 50%;
-      background: var(--amber); color: var(--white);
+      background: var(--primary); color: var(--white);
       font-size: 15px; font-weight: 500;
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 14px;
@@ -213,7 +220,7 @@
     .step-desc { font-size: 13px; color: var(--text-2); line-height: 1.55; }
     .step-sep {
       display: flex; align-items: center; justify-content: center;
-      color: var(--amber-mid); font-size: 22px; padding-top: 20px;
+      color: var(--primary-mid); font-size: 22px; padding-top: 20px;
     }
 
     /* ─── FOR WHOM ───────────────────────────────────────── */
@@ -229,7 +236,7 @@
     .who-tag {
       display: inline-block;
       font-size: 12px; font-weight: 500;
-      background: var(--amber-pale); color: var(--amber-dark);
+      background: var(--primary-pale); color: var(--primary-dark);
       padding: 4px 12px; border-radius: 20px; margin-bottom: 14px;
     }
     .who-card h3 {
@@ -247,29 +254,29 @@
     .who-list li::before {
       content: '';
       width: 6px; height: 6px; border-radius: 50%;
-      background: var(--amber-mid); flex-shrink: 0;
+      background: var(--primary-mid); flex-shrink: 0;
     }
 
     /* ─── TRUST STRIP ────────────────────────────────────── */
     .trust { padding: 48px 24px; }
     .trust-inner {
       max-width: 860px; margin: 0 auto;
-      background: var(--amber-pale);
+      background: var(--primary-pale);
       border-radius: var(--r-lg);
       padding: 32px 36px;
       display: flex; gap: 28px; align-items: flex-start;
     }
     .trust-avatar {
       width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
-      background: var(--amber-mid);
+      background: var(--primary-mid);
       display: flex; align-items: center; justify-content: center;
       font-family: var(--font-serif);
-      font-size: 20px; font-weight: 500; color: #412402;
+      font-size: 20px; font-weight: 500; color: #fff;
     }
     .trust-body {}
     .trust-label {
       font-size: 12px; font-weight: 500; letter-spacing: .07em;
-      text-transform: uppercase; color: var(--amber-dark);
+      text-transform: uppercase; color: var(--primary-dark);
       margin-bottom: 8px;
     }
     .trust-text {
@@ -285,7 +292,7 @@
     .cta-band { padding: 0 24px 72px; }
     .cta-inner {
       max-width: 860px; margin: 0 auto;
-      background: var(--amber);
+      background: var(--primary);
       border-radius: var(--r-lg);
       padding: 56px 40px; text-align: center;
     }
@@ -314,7 +321,7 @@
     }
     .icf-label {
       font-size: 11px; font-weight: 600; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--amber-dark);
+      text-transform: uppercase; color: var(--primary-dark);
       margin-bottom: 12px;
     }
     .icf-text {
@@ -330,7 +337,7 @@
       max-width: 860px; margin: 0 auto;
     }
     footer p { font-size: 13px; color: var(--text-3); }
-    footer a { color: var(--amber); }
+    footer a { color: var(--primary); }
 
     /* ─── DIVIDER ────────────────────────────────────────── */
     hr { border: none; border-top: 1px solid var(--border); }
@@ -338,6 +345,7 @@
     /* ─── RESPONSIVE ─────────────────────────────────────── */
     @media (max-width: 640px) {
       .nav-links { display: none; }
+      .nav-logo-text { display: none; }
       section { padding: 52px 20px; }
       .trust-inner { flex-direction: column; padding: 24px; }
       .cta-inner { padding: 40px 24px; }
@@ -352,7 +360,32 @@
 <!-- ═══════════════════════ NAV ═══════════════════════ -->
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo">Sébastien <span>Boussely</span></div>
+    <a href="#" class="nav-logo">
+      <svg width="40" height="40" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+        <defs>
+          <linearGradient id="wingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1B7A8F;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#0D4A56;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <!-- Background circle -->
+        <circle cx="60" cy="60" r="58" fill="#E8F4F7" stroke="#1B7A8F" stroke-width="1.5"/>
+        <!-- Bird silhouette with wings -->
+        <g transform="translate(60, 60)">
+          <!-- Left wing -->
+          <path d="M -15 -5 Q -25 -15 -30 -8 Q -28 -3 -18 0 Z" fill="url(#wingGradient)" opacity="0.9"/>
+          <!-- Right wing -->
+          <path d="M 15 -5 Q 25 -15 30 -8 Q 28 -3 18 0 Z" fill="#3BA5BF" opacity="0.8"/>
+          <!-- Head -->
+          <circle cx="0" cy="-8" r="6" fill="#1B7A8F"/>
+          <!-- Body -->
+          <path d="M 0 -2 Q -4 8 0 16 Q 4 8 0 -2 Z" fill="#1B7A8F" opacity="0.95"/>
+          <!-- Eye -->
+          <circle cx="2" cy="-9" r="1.5" fill="#E8F4F7"/>
+        </g>
+      </svg>
+      <div class="nav-logo-text">Sébastien <span>Boussely</span></div>
+    </a>
     <ul class="nav-links">
       <li><a href="#pour-qui">Pour qui ?</a></li>
       <li><a href="#resultats">Ce que vous gagnez</a></li>
@@ -568,14 +601,14 @@
 <div class="icf-code">
   <div class="icf-code-inner">
     <div class="icf-label">Code de déontologie ICF</div>
-    <p class="icf-text">Je respecte le Code de déontologie de l'ICF en garantissant la confidentialité des échanges, le respect de l'autonomie du client, l'absence de conflit d'intérêts, la transparence de la relation contractuelle et le maintien d'un haut niveau de professionnalisme par le développement continu des compétences.</p>
+    <p class="icf-text">Je respecte le Code de déontologie de l'ICF en garantissant la confidentialité des échanges, le respect de l'autonomie du client, l'absence de conflit d'intérêts, la trans[...]
   </div>
 </div>
 
 <!-- ═══════════════════════ FOOTER ════════════════════ -->
 <footer>
   <p>© 2026 Sébastien Boussely · Coaching &amp; Formation</p>
-  <p style="color: var(--amber);">Saint-Yrieix-la-Perche · France &amp; distanciel</p>
+  <p style="color: var(--primary);">Saint-Yrieix-la-Perche · France &amp; distanciel</p>
 </footer>
 
 </body>

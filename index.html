@@ -9,20 +9,20 @@
   <style>
     /* ─── TOKENS ─────────────────────────────────────────── */
     :root {
-      --primary:      #1B7A8F;
-      --primary-dark: #0D4A56;
-      --primary-pale: #E8F4F7;
-      --primary-mid:  #3BA5BF;
-      --text:         #1A1410;
-      --text-2:       #5C4E3A;
-      --text-3:       #8C7A63;
-      --bg:           #FDFAF5;
-      --white:        #FFFFFF;
-      --border:       #E8DDD0;
-      --r:            10px;
-      --r-lg:         16px;
-      --font-serif:   'Lora', Georgia, serif;
-      --font-sans:    'Inter', system-ui, sans-serif;
+      --amber:      #BA7517;
+      --amber-dark: #854F0B;
+      --amber-pale: #FBF0DC;
+      --amber-mid:  #EF9F27;
+      --text:       #1A1410;
+      --text-2:     #5C4E3A;
+      --text-3:     #8C7A63;
+      --bg:         #FDFAF5;
+      --white:      #FFFFFF;
+      --border:     #E8DDD0;
+      --r:          10px;
+      --r-lg:       16px;
+      --font-serif: 'Lora', Georgia, serif;
+      --font-sans:  'Inter', system-ui, sans-serif;
     }
 
     /* ─── RESET ──────────────────────────────────────────── */
@@ -56,18 +56,11 @@
       height: 60px; gap: 24px;
     }
     .nav-logo {
-      display: flex; align-items: center; gap: 12px;
-      white-space: nowrap;
-    }
-    .nav-logo img {
-      height: 40px; width: auto;
-    }
-    .nav-logo-text {
       font-family: var(--font-serif);
-      font-size: 15px; font-weight: 500;
-      color: var(--text);
+      font-size: 17px; font-weight: 500;
+      color: var(--text); white-space: nowrap;
     }
-    .nav-logo-text span { color: var(--primary); }
+    .nav-logo span { color: var(--amber); }
     .nav-links {
       display: flex; gap: 24px; list-style: none;
     }
@@ -75,23 +68,23 @@
       font-size: 14px; color: var(--text-2);
       transition: color .2s;
     }
-    .nav-links a:hover { color: var(--primary); }
+    .nav-links a:hover { color: var(--amber); }
     .btn {
       display: inline-block;
       font-family: var(--font-sans); font-size: 14px; font-weight: 500;
       padding: 9px 20px; border-radius: var(--r);
       border: none; cursor: pointer; transition: all .2s;
     }
-    .btn-primary { background: var(--primary); color: var(--white); }
-    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-primary { background: var(--amber); color: var(--white); }
+    .btn-primary:hover { background: var(--amber-dark); }
     .btn-ghost {
       background: transparent;
-      border: 1.5px solid var(--primary);
-      color: var(--primary);
+      border: 1.5px solid var(--amber);
+      color: var(--amber);
     }
-    .btn-ghost:hover { background: var(--primary-pale); }
-    .btn-white { background: var(--white); color: var(--primary); font-weight: 500; }
-    .btn-white:hover { background: var(--primary-pale); }
+    .btn-ghost:hover { background: var(--amber-pale); }
+    .btn-white { background: var(--white); color: var(--amber); font-weight: 500; }
+    .btn-white:hover { background: var(--amber-pale); }
     .btn-lg { padding: 13px 28px; font-size: 15px; }
 
     /* ─── HERO ───────────────────────────────────────────── */
@@ -103,8 +96,8 @@
     .eyebrow {
       display: inline-block;
       font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
-      color: var(--primary-dark);
-      background: var(--primary-pale);
+      color: var(--amber-dark);
+      background: var(--amber-pale);
       padding: 5px 14px; border-radius: 20px;
       margin-bottom: 24px;
     }
@@ -116,7 +109,7 @@
       margin-bottom: 20px;
     }
     .hero h1 em {
-      color: var(--primary); font-style: italic;
+      color: var(--amber); font-style: italic;
     }
     .hero-sub {
       font-size: 17px; color: var(--text-2); line-height: 1.75;
@@ -132,7 +125,7 @@
     .stat { text-align: center; }
     .stat-n {
       font-family: var(--font-serif);
-      font-size: 28px; font-weight: 500; color: var(--primary);
+      font-size: 28px; font-weight: 500; color: var(--amber);
       line-height: 1;
     }
     .stat-l {
@@ -143,7 +136,7 @@
     section { padding: 72px 24px; }
     .section-label {
       font-size: 12px; font-weight: 500; letter-spacing: .08em;
-      text-transform: uppercase; color: var(--primary-dark);
+      text-transform: uppercase; color: var(--amber-dark);
       margin-bottom: 8px;
     }
     .section-title {
@@ -154,7 +147,7 @@
     }
 
     /* ─── PAINS ──────────────────────────────────────────── */
-    .pains { background: var(--primary-pale); }
+    .pains { background: var(--amber-pale); }
     .pains-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -167,11 +160,11 @@
     }
     .pain-mark {
       width: 28px; height: 28px; border-radius: 50%;
-      background: var(--primary-pale); border: 1.5px solid var(--primary-mid);
+      background: var(--amber-pale); border: 1.5px solid var(--amber-mid);
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 14px;
     }
-    .pain-mark svg { width: 14px; height: 14px; stroke: var(--primary); fill: none; stroke-width: 2; stroke-linecap: round; }
+    .pain-mark svg { width: 14px; height: 14px; stroke: var(--amber); fill: none; stroke-width: 2; stroke-linecap: round; }
     .pain-q {
       font-size: 14px; font-weight: 500; color: var(--text);
       line-height: 1.45; margin-bottom: 8px;
@@ -188,10 +181,10 @@
     }
     .outcome-icon {
       width: 44px; height: 44px; flex-shrink: 0;
-      background: var(--primary-pale); border-radius: var(--r);
+      background: var(--amber-pale); border-radius: var(--r);
       display: flex; align-items: center; justify-content: center;
     }
-    .outcome-icon svg { width: 20px; height: 20px; stroke: var(--primary); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .outcome-icon svg { width: 20px; height: 20px; stroke: var(--amber); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     .outcome-title {
       font-size: 15px; font-weight: 500; color: var(--text);
       margin-bottom: 6px;
@@ -199,7 +192,7 @@
     .outcome-text { font-size: 14px; color: var(--text-2); line-height: 1.6; }
 
     /* ─── HOW ────────────────────────────────────────────── */
-    .how { background: var(--primary-pale); }
+    .how { background: var(--amber-pale); }
     .steps {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -208,7 +201,7 @@
     .step { padding: 24px 16px 24px; text-align: center; }
     .step-num {
       width: 40px; height: 40px; border-radius: 50%;
-      background: var(--primary); color: var(--white);
+      background: var(--amber); color: var(--white);
       font-size: 15px; font-weight: 500;
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 14px;
@@ -220,7 +213,7 @@
     .step-desc { font-size: 13px; color: var(--text-2); line-height: 1.55; }
     .step-sep {
       display: flex; align-items: center; justify-content: center;
-      color: var(--primary-mid); font-size: 22px; padding-top: 20px;
+      color: var(--amber-mid); font-size: 22px; padding-top: 20px;
     }
 
     /* ─── FOR WHOM ───────────────────────────────────────── */
@@ -236,7 +229,7 @@
     .who-tag {
       display: inline-block;
       font-size: 12px; font-weight: 500;
-      background: var(--primary-pale); color: var(--primary-dark);
+      background: var(--amber-pale); color: var(--amber-dark);
       padding: 4px 12px; border-radius: 20px; margin-bottom: 14px;
     }
     .who-card h3 {
@@ -254,29 +247,29 @@
     .who-list li::before {
       content: '';
       width: 6px; height: 6px; border-radius: 50%;
-      background: var(--primary-mid); flex-shrink: 0;
+      background: var(--amber-mid); flex-shrink: 0;
     }
 
     /* ─── TRUST STRIP ────────────────────────────────────── */
     .trust { padding: 48px 24px; }
     .trust-inner {
       max-width: 860px; margin: 0 auto;
-      background: var(--primary-pale);
+      background: var(--amber-pale);
       border-radius: var(--r-lg);
       padding: 32px 36px;
       display: flex; gap: 28px; align-items: flex-start;
     }
     .trust-avatar {
       width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
-      background: var(--primary-mid);
+      background: var(--amber-mid);
       display: flex; align-items: center; justify-content: center;
       font-family: var(--font-serif);
-      font-size: 20px; font-weight: 500; color: #fff;
+      font-size: 20px; font-weight: 500; color: #412402;
     }
     .trust-body {}
     .trust-label {
       font-size: 12px; font-weight: 500; letter-spacing: .07em;
-      text-transform: uppercase; color: var(--primary-dark);
+      text-transform: uppercase; color: var(--amber-dark);
       margin-bottom: 8px;
     }
     .trust-text {
@@ -292,7 +285,7 @@
     .cta-band { padding: 0 24px 72px; }
     .cta-inner {
       max-width: 860px; margin: 0 auto;
-      background: var(--primary);
+      background: var(--amber);
       border-radius: var(--r-lg);
       padding: 56px 40px; text-align: center;
     }
@@ -307,27 +300,6 @@
       margin-bottom: 28px; line-height: 1.65;
     }
 
-    /* ─── ICF CODE ───────────────────────────────────────── */
-    .icf-code {
-      padding: 48px 24px;
-      background: var(--bg);
-    }
-    .icf-code-inner {
-      max-width: 860px; margin: 0 auto;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--r-lg);
-      padding: 32px 28px;
-    }
-    .icf-label {
-      font-size: 11px; font-weight: 600; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--primary-dark);
-      margin-bottom: 12px;
-    }
-    .icf-text {
-      font-size: 14px; color: var(--text-2); line-height: 1.75;
-    }
-
     /* ─── FOOTER ─────────────────────────────────────────── */
     footer {
       border-top: 1px solid var(--border);
@@ -337,7 +309,7 @@
       max-width: 860px; margin: 0 auto;
     }
     footer p { font-size: 13px; color: var(--text-3); }
-    footer a { color: var(--primary); }
+    footer a { color: var(--amber); }
 
     /* ─── DIVIDER ────────────────────────────────────────── */
     hr { border: none; border-top: 1px solid var(--border); }
@@ -345,13 +317,11 @@
     /* ─── RESPONSIVE ─────────────────────────────────────── */
     @media (max-width: 640px) {
       .nav-links { display: none; }
-      .nav-logo-text { display: none; }
       section { padding: 52px 20px; }
       .trust-inner { flex-direction: column; padding: 24px; }
       .cta-inner { padding: 40px 24px; }
       .step-sep { display: none; }
       footer { flex-direction: column; align-items: flex-start; }
-      .icf-code-inner { padding: 24px 20px; }
     }
   </style>
 </head>
@@ -360,32 +330,7 @@
 <!-- ═══════════════════════ NAV ═══════════════════════ -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <svg width="40" height="40" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
-        <defs>
-          <linearGradient id="wingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#1B7A8F;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#0D4A56;stop-opacity:1" />
-          </linearGradient>
-        </defs>
-        <!-- Background circle -->
-        <circle cx="60" cy="60" r="58" fill="#E8F4F7" stroke="#1B7A8F" stroke-width="1.5"/>
-        <!-- Bird silhouette with wings -->
-        <g transform="translate(60, 60)">
-          <!-- Left wing -->
-          <path d="M -15 -5 Q -25 -15 -30 -8 Q -28 -3 -18 0 Z" fill="url(#wingGradient)" opacity="0.9"/>
-          <!-- Right wing -->
-          <path d="M 15 -5 Q 25 -15 30 -8 Q 28 -3 18 0 Z" fill="#3BA5BF" opacity="0.8"/>
-          <!-- Head -->
-          <circle cx="0" cy="-8" r="6" fill="#1B7A8F"/>
-          <!-- Body -->
-          <path d="M 0 -2 Q -4 8 0 16 Q 4 8 0 -2 Z" fill="#1B7A8F" opacity="0.95"/>
-          <!-- Eye -->
-          <circle cx="2" cy="-9" r="1.5" fill="#E8F4F7"/>
-        </g>
-      </svg>
-      <div class="nav-logo-text">Sébastien <span>Boussely</span></div>
-    </a>
+    <div class="nav-logo">Sébastien <span>Boussely</span></div>
     <ul class="nav-links">
       <li><a href="#pour-qui">Pour qui ?</a></li>
       <li><a href="#resultats">Ce que vous gagnez</a></li>
@@ -401,7 +346,7 @@
     <div class="eyebrow">Coaching · Formation · Accompagnement managérial</div>
     <h1>Vous avez le potentiel.<br><em>Débloquez-le.</em></h1>
     <p class="hero-sub">
-      Vous managez une équipe, traversez une transition professionnelle ou évoluez dans un contexte international — et vous sentez qu'il vous manque quelque chose pour passer au niveau supérieur.[...]
+      Vous managez une équipe, traversez une transition professionnelle ou évoluez dans un contexte international — et vous sentez qu'il vous manque quelque chose pour passer au niveau supérieur. C'est exactement là qu'on travaille ensemble.
     </p>
     <div class="hero-ctas">
       <a href="#cta" class="btn btn-primary btn-lg">Réserver un appel gratuit de 30 min</a>
@@ -442,7 +387,7 @@
 
       <div class="pain-card">
         <div class="pain-mark">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10"/></svg>
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
         <p class="pain-q">Vous travaillez dans un contexte multiculturel et les malentendus coûtent cher.</p>
         <p class="pain-desc">Équipes mixtes, partenaires étrangers, management à distance… la communication ne coule pas de source.</p>
@@ -581,9 +526,9 @@
     <div class="trust-body">
       <div class="trust-label">Pourquoi me faire confiance</div>
       <p class="trust-text">
-        Pas parce que j'ai un beau diplôme — mais parce que j'ai vécu ce que vous vivez. 25 ans à manager des équipes internationales, à naviguer l'incertitude, à transformer des obstacles en [...]
+        Pas parce que j'ai un beau diplôme — mais parce que j'ai vécu ce que vous vivez. 25 ans à manager des équipes internationales, à naviguer l'incertitude, à transformer des obstacles en leviers. Mon rôle aujourd'hui : vous aider à faire pareil, avec plus de clarté et moins de tâtonnement.
       </p>
-      <p class="trust-sig">Sébastien Boussely · Coach et Formateur Professionnel d'Adultes (RNCP)</p>
+      <p class="trust-sig">Sébastien Boussely · Ingénieur Centrale/Supélec · Formateur Professionnel d'Adultes (RNCP)</p>
     </div>
   </div>
 </section>
@@ -597,18 +542,10 @@
   </div>
 </div>
 
-<!-- ═══════════════════════ ICF CODE ══════════════════ -->
-<div class="icf-code">
-  <div class="icf-code-inner">
-    <div class="icf-label">Code de déontologie ICF</div>
-    <p class="icf-text">Je respecte le Code de déontologie de l'ICF en garantissant la confidentialité des échanges, le respect de l'autonomie du client, l'absence de conflit d'intérêts, la trans[...]
-  </div>
-</div>
-
 <!-- ═══════════════════════ FOOTER ════════════════════ -->
 <footer>
   <p>© 2026 Sébastien Boussely · Coaching &amp; Formation</p>
-  <p style="color: var(--primary);">Saint-Yrieix-la-Perche · France &amp; distanciel</p>
+  <p style="color: var(--amber);">Saint-Yrieix-la-Perche · France &amp; distanciel</p>
 </footer>
 
 </body>
